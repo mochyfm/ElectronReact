@@ -1,38 +1,70 @@
-.App {
+:root {
+
+  --primary-color: #272C36;
+  --secondary-color: #1B1D23;
+  --background-color: #2C313C;
+  --border-color: #343B48;
+  --active-color: #4F9FEE;
+  --hover-color: #99B5D0;
+  --font-color: #FFF;
+  --nav-font-size: 2rem;
+}
+
+html {
+  background-color: var(--background-color);
+}
+
+/* TopBar Component */
+
+.topBar {
+  animation-name: slideDown;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  background-color: var(--secondary-color);
+  border-bottom: 0rem solid var(--active-color) ;
+  display: flex;
+  font-weight: bold;
+  font-family: 'Cantarell', sans-serif;
+  padding: 12px;
+  
+}
+
+@keyframes slideDown {
+  0% { border-width: 0rem;}
+  50% { border-bottom: 0rem solid;}
+  100% { border-width: .560rem;}
+}
+
+.navOption {
+  align-self: center;
+  color: var(--font-color);
+  font-size: var(--nav-font-size);
+  text-decoration: none;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navOption:hover {
+  color: var(--hover-color)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logoSite {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 5;
+  justify-content: flex-end;
+  padding-top: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+img.logo {
+  align-self: center;
+  height: 90px;
+  width: 400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.col {
+  flex: 1;
+}
+
+.selected {
+  color: var(--active-color);
 }
