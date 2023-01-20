@@ -1,5 +1,11 @@
+import MainCarousel from '../../MainCarousel';
+
 const MainWebpage = () => {
-  return <div></div>;
+  return (
+    <>
+      <MainCarousel />
+    </>
+  );
 };
 
 export default MainWebpage;

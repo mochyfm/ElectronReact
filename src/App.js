@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import TopBar from './Components/TopBar';
 import MainWebpage from './Components/Pages/MainWebpage';
+import FootBar from './Components/FootBar';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/actor" />
             <Route path="/actors/new" />
           </Routes>
+          <FootBar />
         </div>
       </BrowserRouter>
     </div>

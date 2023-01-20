@@ -1,0 +1,51 @@
+/* FOOTBAR GENERAL STYLES */
+
+.footBar {
+    color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  /* LINK GROUP STYLES */
+  
+  .linkSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  /* LINK STYLES */
+  
+  .linkSection > .link {
+    color: var(--hover-color);
+    border-left: .1rem solid var(--secondary-color);
+    margin-left: .256rem;
+    margin-right: .256rem;
+    padding-left: .512rem;
+    text-decoration: none;
+  }
+
+  /* LINK INTERACTIONS */
+  
+  .link:first-child {
+    border:none;
+  }
+  
+  .link:link {
+    color: var(--hover-color)
+  }
+  
+  .link:hover {
+    color: var(--font-color)
+  }
+  
+  .link:visited {
+    color: var(--font-color)
+  }
+  
+  .link:visited:hover {
+    color: var(--active-color)
+  }
