@@ -6,12 +6,76 @@
   --border-color: #343B48;
   --active-color: #4F9FEE;
   --hover-color: #99B5D0;
+  --table-body-color: #a3a5a7;
   --font-color: #FFF;
   --nav-font-size: 2rem;
-  --special-font-family: 'Calibri';
-  --common-font-family: 'Arial' ;
+  --special-font-family: 'Roboto Slab';
+  --subspecial-font-family: 'Nunito';
+  --common-font-family: 'Arial';
+  --font-size-header: 1.6rem;
+  --font-size-body: 1rem;
+
 }
 
-html {
+body {
   background-color: var(--background-color);
+  position: relative;
 }
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 80px;
+}
+
+.listHeader {
+  background-color: var(--border-color);
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  font-family: var(--subspecial-font-family);
+  font-size: var(--font-size-header);
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.listHeaderCol {
+  color: var(--active-color);
+  flex: 2;
+}
+
+.listHeaderCol:first-of-type {
+  flex: 1;
+}
+
+.listRow {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.listCol {
+  color: var(--table-body-color);
+  flex: 2;
+  font-family: var(--common-font-family);
+  font-size: var(--font-size-body);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.listCol:first-of-type {
+  flex: 1;
+}
+
+.listCol:first-of-type {
+  border-left: 1px solid var(--border-color);
+}
+
+.listCol:last-of-type {
+  border-right: 1px solid var(--border-color);
+}
+

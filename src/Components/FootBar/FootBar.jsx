@@ -10,7 +10,7 @@ const FootBar = () => {
       </div>
       <div>
         <p className="linkSection">
-          <Link to="/actor" className="link">
+          <Link to="/actors" className="link">
             List of Users
           </Link>
           <Link to="/actor/new" className="link">

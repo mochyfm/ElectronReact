@@ -1,12 +1,24 @@
 /* FOOTBAR GENERAL STYLES */
 
 .footBar {
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-top: 5px solid var(--hover-color);
     color: var(--font-color);
     display: flex;
     flex-direction: column;
     justify-items: center;
-    align-items: center;
     padding-top: 20px;
+  }
+
+  @keyframes slideUp {
+    0% { border-width: 0rem;}
+    50% { border-top: 0rem solid;}
+    100% { border-width: .560rem;}
   }
 
   /* LINK GROUP STYLES */
@@ -43,7 +55,7 @@
   }
   
   .link:visited {
-    color: var(--font-color)
+    color: var(--hover-color)
   }
   
   .link:visited:hover {
