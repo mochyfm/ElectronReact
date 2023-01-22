@@ -1,0 +1,32 @@
+
+body {
+    background-color: var(--background-color);
+    position: relative;
+  }
+  
+  .infoHeader {
+    background-color: var(--active-color);
+    color: var(--secondary-color);
+    padding-left: 30px;
+  }
+  
+  .infoBody {
+    border: 1px solid var(--active-color);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 20px 0px;
+  }
+  
+  .fullInfo {
+    color: var(--font-color);
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 10px;
+    margin-left: 50px;
+  }
+  
+  .tagInfo {
+    color: var(--active-color);
+    font-weight: bold;
+    font-style: normal;
+  }

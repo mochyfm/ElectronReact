@@ -1,0 +1,61 @@
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 80px;
+  }
+  
+  .listHeaderCol {
+    color: var(--active-color);
+    flex: 2;
+  }
+  
+  .listHeaderCol:first-of-type {
+    color: var(--hover-color)
+  }
+
+  .listHeaderCol:first-of-type, .listCol:first-of-type  {
+    flex: 1;
+  }
+  
+  .listRow {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .listRow:hover {
+    background-color: var(--secondary-color);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    cursor: default;
+  }
+
+  .listCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--table-body-color);
+    flex: 2;
+    font-family: var(--common-font-family);
+    font-size: var(--font-size-body);
+    height: 80px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .listCol:first-of-type {
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    font-weight: bold;
+    color: var(--hover-color);
+  }
+  
+  .listCol:last-of-type {
+    border-right: 1px solid var(--border-color);
+  }
+
+  .listCol:last-of-type > .btn {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  

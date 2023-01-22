@@ -1,19 +1,53 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
+import './actorList.css';
 import { Link } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 import ActorService from '../../../services/actor.service';
+import Loading from '../../Loading';
+import Message from '../../assets/Message';
 
 const ActorList = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const deleteActor = async (id) => {
+    try {
+      await ActorService.deleteActor(id);
+      setList(list.filter((list) => list.actor_id !== id))
+    } catch(excp) {
+      console.log(excp);
+    }
+    
+  };
+
+  const callDelete = (data) => {
+    confirmAlert({
+      message: `Delete "${data.first_name}, ${data.last_name}"?`,
+      closeOnClickOutside: false,
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => deleteActor(data.actor_id),
+        },
+        {
+          label: 'Cancel',
+        },
+      ],
+    });
+  }
+
   useEffect(() => {
     setLoading(true);
+
     const getListData = async () => {
       try {
         setList(await ActorService.getAll());
+        setError(null);
       } catch (excp) {
-        console.error(excp);
         setError(excp);
       }
     };
@@ -21,7 +55,7 @@ const ActorList = () => {
     setTimeout(() => {
       getListData();
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   const renderHeader = () => {
@@ -36,17 +70,20 @@ const ActorList = () => {
   };
 
   const renderBody = () => {
-    return list.map(({ actor_id, first_name, last_name }, index) => (
+    return list.map(({ actor_id, first_name, last_name }) => (
       <div className="listRow" key={actor_id}>
         <div className="listCol">{actor_id}</div>
         <div className="listCol">{first_name}</div>
         <div className="listCol">{last_name}</div>
         <div className="listCol">
-          <button className="btn btn-primary" onClick={3}>
-            Editar
-          </button>
-          <button className="btn btn-danger" onClick={3}>
-            Eliminar
+          <Link className="btn btn-primary" to={`./edit/${actor_id}`}>
+            Edit
+          </Link>
+          <button
+            className="btn btn-secondary"
+            onClick={() => callDelete({ actor_id, first_name, last_name })}
+          >
+            Delete
           </button>
         </div>
       </div>
@@ -56,10 +93,15 @@ const ActorList = () => {
   return (
     <>
       {loading ? (
-        <p>Cargando...</p>
+        <Loading />
+      ) : error ? (
+        <Message
+          mesg={`ERROR ${error.code}: ${error.message}`}
+          bgColor="#dc3545"
+        />
       ) : (
         <div className="listContainer">
-          <header className="listHeader">{renderHeader()}</header>
+          <header className="generalHeader">{renderHeader()}</header>
           <section>{renderBody()}</section>
         </div>
       )}

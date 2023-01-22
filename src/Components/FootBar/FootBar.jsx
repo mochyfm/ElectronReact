@@ -13,7 +13,7 @@ const FootBar = () => {
           <Link to="/actors" className="link">
             List of Users
           </Link>
-          <Link to="/actor/new" className="link">
+          <Link to="/actors/new" className="link">
             Add a new User
           </Link>
         </p>
